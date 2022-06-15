@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect } from 'react';
+
+import LoginPage from './pages/LoginPage';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from './redux/actions/userActions';
+import HomePage from './pages/home/HomePage';
 
 function App() {
+
+  const dispatch = useDispatch()
+  const { user } = useSelector(state => state)
+
+
+  useEffect(() => {
+    const localUser = localStorage.getItem('user')
+    if (localUser) {
+      dispatch(loginUser(JSON.parse(localUser)))
+    }
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {user.access ? <HomePage /> : <LoginPage />}
+
+    </>
   );
 }
 
