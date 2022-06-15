@@ -25,14 +25,16 @@ const UserProducts = () => {
 
                             Gelen harytlar
                         </div>
-                        <table>
+                        <table className="w-full whitespace-nowrap">
                             <thead>
-                                <td>Image</td>
-                                <td>Title</td>
-                                <td>Category</td>
-                                <td>Bahasy</td>
-                                <td>Sany</td>
-                                <td>Total</td>
+                                <tr className="text-sm font-semibold tracking-wide text-left uppercase border-b border-gray-700 text-gray-400 bg-gray-700">
+                                    <th className="px-4 py-3 text-white font-semibold">Image</th>
+                                    <th className="px-4 py-3 text-white font-semibold">Title</th>
+                                    <th className="px-4 py-3 text-white font-semibold">Category</th>
+                                    <th className="px-4 py-3 text-white font-semibold">Baha</th>
+                                    <th className="px-4 py-3 text-white font-semibold">Sany</th>
+                                    <th className="px-4 py-3 text-white font-semibold">Total</th>
+                                </tr>
                             </thead>
                         </table>
                     </div>
